@@ -21,28 +21,34 @@
 
 
 .albuns {
-    display:flex;
+    margin: 0px;
+    background-color: pink;
+    display: flex;
     flex-direction: row;
-    justify-content:space-around;
+    flex-wrap:wrap;
+    justify-content: space-around;
 }
 
 .album {
-    background-color: white;
-    width: 350px;
-    padding: 10px;
+    margin: 10px;
+    width: 360px;
     display: flexbox;
-    align-items: center;
+    background-color: red;
 }
 
 .imgAlbum {    
     background-color: rgb(176, 127, 255);
     width: 350px;
-    padding: 5px;
+    padding: 5px;;
 }
 
 .albumScale {
 
     width: 120%;background-color: red;
+}
+
+.text-center {
+    text-align: center;
 }
 
 

@@ -1,42 +1,15 @@
 window.onload = function() {
 
-    /*
-    let element = document.getElementById("portfolio");
-    let element_text = "Paulo";
-    //element.innerHTML = testText;
+
+
+    //-------- Portfolio ---------
     
-    let testText = function(word) {
-        element.innerHTML = word;
-    }
-    
-    testText("hello");
-    */
-
-
-
-
-   let album01 = document.getElementById("album01");
-   
-   
-   const scale = () => {
-       album01.style = "albumScale";
-    };
-    
-    album01.addEventListener("mouseover", scale);
-    console.log("MainJS")
-
-   
-
-/*
-
-   //-------- Portfolio ---------
-      
-   let portfolio = [
-       {
-           architect: "SM Architecture",
-           local: "Fernão Ferro - Portugal",
-           software: "3D Studio Max - Corona - Photshop",
-           images: ["../img/SA_FF/01_exterior.jpg", "../img/SA_FF/02_exterior.jpg"]
+    let portfolio = [
+        {
+            architect: "SM Architecture",
+            local: "Fernão Ferro - Portugal",
+            software: "3D Studio Max - Corona - Photshop",
+            images: ["../img/SM_FF/01_exterior.jpg", "../img/SM_FF/02_exterior.jpg"]
            
         },
         {
@@ -44,37 +17,72 @@ window.onload = function() {
             local: "Azeitão - Portugal",
             software: "3D Studio Max - Corona - Photshop",
             images: ["../img/RA_Az/RA_Az_01.jpg", "../img/RA_Az/RA_Az_02.jpg", "../img/RA_Az/RA_Az_03.jpg"]
+        },
+        {
+            architect: "SM Architecture",
+            local: "Cruz de Pau - Portugal",
+            software: "3D Studio Max - Vray - Photshop",
+            images: ["../img/SM_CruzPau/SM_CruzPau_01.jpg", "../img/SM_CruzPau/SM_CruzPau_02.jpg"]
+        },
+        {
+            architect: "RA Architecture",
+            local: "Amadora - Portugal",
+            software: "3D Studio Max - Corona - Photshop",
+            images: ["../img/CrisAmadora/CrisAmad_01_Coz_01.jpg", "../img/CrisAmadora/CrisAmad_01_Coz_02.jpg"]
+        },
+        {
+            architect: "PA Architecture",
+            local: "Charneca - Portugal",
+            software: "3D Studio Max - Vray - Photshop",
+            images: ["../img/PA_Mesquita/PA_Mesq_01.jpg", "../img/PA_Mesquita/PA_Mesq_02.jpg"]
+        },
+        {
+            architect: "SM Architecture",
+            local: "Aroeira - Portugal",
+            software: "3D Studio Max - Corona - Photshop",
+            images: ["../img/SM_Cantarelo/SM_Cant_01_Noite_01.jpg", "../img/SM_Cantarelo/SM_Cant_01_Noite_02.jpg"]
         }
     ];
     
     
     
-    
-    
-    
-    document.body.append("Architect: " + portfolio[0].architect); 
-    
-    let albumID = 1;
-    
-    let albumImages = function() {
+ for (i = 0; i < portfolio.length; i++) {
+     
+     let albunsID = document.getElementById("albunsID");
+    albunsID.className = "albuns";
 
-        for (i = 0; i < portfolio[albumID].images.length; i++) {
-            
-            let element_img = document.createElement("img");
-            element_img.src = portfolio[albumID].images[i];
-            element_img.width = "300";
-            document.body.append(element_img);
-        }
-        
-        
-    };
+    let album = document.createElement("div");
+    let albumID = i + 1;
+    album.id = "albumID_0" + albumID;
+    album.className = "album";
+    
+    albunsID.append(album);
+    
+    let album_image = document.createElement("img");
+    album_image.className = "imgAlbum";
+    
+    let j = 0;
+    i === 0 ? j = 1 : j = j;
+    
+    let getImage = portfolio[i].images[j];
+    album_image.src = getImage;
+    album.append(album_image);
+    
+    let album_arch = document.createElement("p");
+    album_arch.className = "text-center"
+    album_arch.innerHTML = portfolio[i].architect;
+    album.append(album_arch);
+    
+    let album_local = document.createElement("p");
+    album_local.className = "text-center";
+    album_local.innerHTML = portfolio[i].local;
+    album.append(album_local);
+    
+}
 
-    albumImages();
+
     
-    console.log("Length of array is " + portfolio[1].images.length);
-    console.log(portfolio);
-    
-  */  
+
     
 
     
