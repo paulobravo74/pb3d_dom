@@ -1,8 +1,4 @@
 window.onload = function() {
-
-
-
-    //-------- Portfolio ---------
     
     let portfolio = [
         {
@@ -43,6 +39,27 @@ window.onload = function() {
             images: ["../img/SM_Cantarelo/SM_Cant_01_Noite_01.jpg", "../img/SM_Cantarelo/SM_Cant_01_Noite_02.jpg"]
         }
     ];
+
+   
+   
+    //-------- Apresentation --------
+
+    let apresentation = document.getElementById("apresentation");
+
+    let apresentation_image = document.createElement("img");
+    apresentation_image.src = portfolio[1].images[2];
+    apresentation_image.className = "apresent_Image"
+    apresentation.append(apresentation_image);
+
+    //let apresnet_Img = apresentation.createElement("img");
+    //apresnet_Img.src = portfolio[0].images[1];
+
+    //apresentation.append(apresnet_Img);
+
+
+
+    //-------- Portfolio ---------
+    
     
     
     
@@ -64,8 +81,7 @@ window.onload = function() {
     let j = 0;
     i === 0 ? j = 1 : j = j;
     
-    let getImage = portfolio[i].images[j];
-    album_image.src = getImage;
+    album_image.src = portfolio[i].images[j];
     album.append(album_image);
     
     let album_arch = document.createElement("p");
@@ -78,10 +94,23 @@ window.onload = function() {
     album_local.innerHTML = portfolio[i].local;
     album.append(album_local);
     
+
+
+
+    album.addEventListener("mouseover", func, false);
+    function func() {
+        album.setAttribute("class", "albumMouseOver");
+        album.onmouseover
+    }
+
+    album.addEventListener("mouseout", func01, false);
+    function func01() {
+        album.setAttribute("class", "album");
+    }
+
 }
 
-
-    
+   
 
     
 
