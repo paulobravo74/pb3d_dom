@@ -1,0 +1,78 @@
+.headClass {
+    margin: 0px;
+    background-color: red;
+    height: 125px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.name {
+    background-color: aqua;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    color: blue;
+    font-size: 20px;
+    width: 150px;
+    height: 50px;
+    text-align: center;
+}
+
+
+.albuns {
+    display:flex;
+    flex-direction: row;
+    justify-content:space-around;
+}
+
+.album {
+    background-color: white;
+    width: 350px;
+    padding: 10px;
+    display: flexbox;
+    align-items: center;
+}
+
+.imgAlbum {    
+    background-color: rgb(176, 127, 255);
+    width: 350px;
+    padding: 5px;
+}
+
+.albumScale {
+
+    width: 120%;background-color: red;
+}
+
+
+.test {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
+.imgs {
+    margin: 15px;
+    background-color: black;
+    display:flexbox;
+    flex-direction: column;
+    justify-content: center;
+    
+    padding: 10px;
+}
+
+.colorRed {
+    color: red;
+}
+
+.size40 {
+    font-size: 40px;
+}
+
+.table {
+    background-color: aqua;
+    padding-left: 25px;
+    padding-right: 25px;
+}
