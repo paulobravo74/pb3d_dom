@@ -1,6 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
 
 
+.testemenu {
+    height: 150px;
+    background-color: black;
+}
+
 .headClass {
     margin: 0px;
     background-color: red;
@@ -22,11 +27,14 @@
     text-align: center;
 }
 
+.apresentation {
+    background-color: aquamarine;
+    display: flex;
+    justify-content: center;
+}
+
 .apresent_Image {
-    width: 100%;
-    display: grid;
-    font-size: clamp(1rem, 2vw, 1.5rem);
-    color: #37474f;
+    object-fit:fill;
 }
 
 
@@ -40,21 +48,29 @@
 }
 
 .album {
-    margin: 10px;
-    width: 360px;
+    margin: 30px;
+    width: 350px;
     display: flexbox;
     justify-content: center;
     background-color: rgb(233, 233, 233);
 }
 
 .albumMouseOver {
-    margin: 10px;
-    width: 360px;
+    margin: 30px;
+    width: 350px;
     display: flexbox;
     background-color: rgb(243, 243, 243);
     filter:drop-shadow(rgb(197, 197, 197) 10px 10px 5px);
     object-position: 15px 15px ;
     cursor: pointer;
+}
+
+.albumMouseOnClick {
+    margin: 30px;
+    width: 350px;
+    display: flexbox;
+    justify-content: center;
+    background-color: rgb(225, 81, 81);
 }
 
 .imgAlbum {    

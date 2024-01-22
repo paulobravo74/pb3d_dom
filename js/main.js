@@ -1,5 +1,20 @@
 window.onload = function() {
     
+
+    //--------------- Menu -----------------
+
+    let menu = document.getElementById("menu");
+    
+    let menu_name = document.createElement("div");
+    menu_name = "Paulo Bravo";
+    menu_name.className = "colorRed size40"
+    menu.append(menu_name);
+
+    let menu_name01 = document.createElement("p");
+    menu_name01 = "Paulo Bravo";
+    menu.append(menu_name01);
+
+
     let portfolio = [
         {
             architect: "SM Architecture",
@@ -40,29 +55,26 @@ window.onload = function() {
         }
     ];
 
+
+    
    
    
     //-------- Apresentation --------
 
-    let apresentation = document.getElementById("apresentation");
+    let apresentation = document.getElementById("apresentation_ID");
+        apresentation.className = "apresentation";
 
     let apresentation_image = document.createElement("img");
     apresentation_image.src = portfolio[1].images[2];
     apresentation_image.className = "apresent_Image"
     apresentation.append(apresentation_image);
 
-    //let apresnet_Img = apresentation.createElement("img");
-    //apresnet_Img.src = portfolio[0].images[1];
-
-    //apresentation.append(apresnet_Img);
-
 
 
     //-------- Portfolio ---------
     
-    
-    
-    
+
+// Create albuns
  for (i = 0; i < portfolio.length; i++) {
      
      let albunsID = document.getElementById("albunsID");
@@ -96,16 +108,16 @@ window.onload = function() {
     
 
 
-
+    // Mouse over event
     album.addEventListener("mouseover", func, false);
     function func() {
         album.setAttribute("class", "albumMouseOver");
-        album.onmouseover
     }
 
     album.addEventListener("mouseout", func01, false);
     function func01() {
         album.setAttribute("class", "album");
+
     }
 
 }
