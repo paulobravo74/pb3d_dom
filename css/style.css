@@ -39,13 +39,15 @@ footer {
 
 
 
-.carousel-inner .carousel-item{
+.carousel-inner {
 	height: 100vh !important;
 }
+.carousel-item{
+  height: 80vh;
+}
 .banner{
-	height: 100vh;
-	background-position: center;
-  
+  display: flex;
+  justify-content: center;
 }
 .main-menu-logo{
 	position: fixed;
@@ -55,10 +57,17 @@ footer {
 	background: #b1b1b14f;
 }
 .navbar-brand{
-	font-size: 30px;
-	font-weight: bold;
-	color: #fff !important;
+	font-size: 50px;
+  font-weight: bold;
+  color: red !important;
 }
+
+.navbar-branda{
+	font-size: 50px;
+  font-weight: bold;
+  color: white !important;
+}
+
 .nav-item a{
 	display: block;
 	font-size: 20px;
@@ -70,8 +79,9 @@ footer {
 	color: #000 !important;
 }
 .carousel-caption{
-	bottom: 40%;
-	display: block !important;
+  background-color: #24fbfd;
+  align-items: center;
+  
 }
 .carousel-caption h1{
 	font-size: 100px;
@@ -109,4 +119,10 @@ footer {
     letter-spacing: 2px;
   }
 
+}estContainer {
+  background-color: #000;
+} 
+
+.testNavBar {
+background-color: #d8d8d8;
 }
