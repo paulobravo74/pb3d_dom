@@ -44,6 +44,9 @@ window.onload = function() {
 
 
     
+
+
+    
     randomSlides();
         
     
@@ -56,9 +59,9 @@ window.onload = function() {
     
     
     
-    //---------------------------------------//
-    //--------------- Slides -----------------//
-    //---------------------------------------//
+    //---------------------------------------------------//
+    //-------------------- Slides -----------------------//
+    //---------------------------------------------------//
 
     function randomSlides() {
 
@@ -166,8 +169,9 @@ window.onload = function() {
 
 
 
-    //-------- Apresentation --------
-
+    //----------------------------------------------------------//
+    //-------------------- Apresentation -----------------------//
+    //----------------------------------------------------------//
     let apresentation = document.getElementById("apresentation_ID");
         apresentation.className = "apresentation";
 
@@ -178,12 +182,13 @@ window.onload = function() {
 
 
 
-    //-------- Portfolio ---------
-    
 
+
+
+    //------------------------------------------------------//
+    //-------------------- Portfolio -----------------------//
+    //------------------------------------------------------// 
     // Create albuns
-
-
     function createAlbuns() {
 
         let albunsID = document.getElementById("albunsID");
@@ -237,7 +242,45 @@ window.onload = function() {
 
    
 
-    
+    //-----------------------------------------------------//
+    //-------------------- Showreel -----------------------//
+    //-----------------------------------------------------//
+
+    let showreel_list = [
+        {
+            tittle: "Showreel 2007",
+            link: "http://www.youtube.com/embed/mXvZ_6Mg3wk"
+        },
+        {
+            tittle: "Showreel 2022",
+            link: "http://www.youtube.com/embed/of0XUB_xKwQ"
+        }
+    ]
+
+
+    let Showreel = document.getElementById("showreel");
+
+    for (i = 0; i < showreel_list.length; i++) {
+
+        let showreel_div = document.createElement("div");
+        
+        let showreel_tittle = document.createElement("p");
+        showreel_tittle.innerText = showreel_list[i].tittle;
+        showreel_div.appendChild(showreel_tittle);
+        
+        
+        let showreel_link = document.createElement("iframe");
+        showreel_link.src = showreel_list[i].link;
+        showreel_link.style.width = "720px";
+        showreel_link.style.height = "405px";
+        showreel_link.style.scale = "75%";
+        showreel_link.className = "albumMouseOver";
+        showreel_div.appendChild(showreel_link);
+        
+        
+        
+        Showreel.append(showreel_div);
+    }
 
 };
     
