@@ -47,7 +47,7 @@ window.onload = function() {
 
 
     
-    randomSlides();
+    //randomSlides();
         
     
     for (i = 0; i < portfolio.length; i++) {
@@ -60,8 +60,55 @@ window.onload = function() {
     //-------------------- Slides -----------------------//
     //---------------------------------------------------//
 
-    
+    let album_slider = 1;
 
+    let slider = document.getElementById("slider");
+    slider.className = "slider_container backGround-red";
+
+
+    // ----------------- Images -----------------------
+    let slider_Img = document.createElement("img");
+    slider_Img.src = portfolio[album_slider].images[1];
+    slider_Img.className = "slider_img";
+    //slider.appendChild(slider_Img);
+
+    // ------------------ Text -----------------------
+    let slider_Text = document.createElement("div");
+    slider_Text.className = "slider_text";
+    
+        let slider_Arch = document.createElement("h3");
+        slider_Arch.innerText = portfolio[album_slider].architect;
+        slider_Text.appendChild(slider_Arch);
+        
+        let slider_Local = document.createElement("h3");
+        slider_Local.innerText = portfolio[album_slider].local;
+        slider_Text.appendChild(slider_Local);
+    
+    
+        
+        
+        // -------------- Slider Indicator ---------------------
+    let get_slider_indicator = function(n) {
+        
+        
+        let slider_Indicator = document.getElementById("slider_indicator_ID");
+        slider_Indicator.className = "slider_indicator";
+        
+
+        for (i = 0; i < n; i++) {
+
+            let slider_Indicator_in = document.createElement("div");
+            slider_Indicator_in.className = "slider_indicator_in";
+            slider_Indicator.appendChild(slider_Indicator_in);
+            
+        }
+    
+    }
+
+
+slider.append(slider_Img , slider_Text, get_slider_indicator(3));
+    
+    
     
     
     
@@ -69,7 +116,7 @@ window.onload = function() {
     //-------------------- Slides -----------------------//
     //---------------------------------------------------//
 
-    function randomSlides() {
+ /*   function randomSlides() {
 
         let portf_random_array = [];
 
@@ -172,7 +219,7 @@ window.onload = function() {
         }
    
     }
-
+*/
 
 
     //----------------------------------------------------------//
