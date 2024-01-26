@@ -56,6 +56,12 @@ window.onload = function() {
 
 
 
+    //---------------------------------------------------//
+    //-------------------- Slides -----------------------//
+    //---------------------------------------------------//
+
+    
+
     
     
     
@@ -271,10 +277,7 @@ window.onload = function() {
         
         let showreel_link = document.createElement("iframe");
         showreel_link.src = showreel_list[i].link;
-        showreel_link.style.width = "720px";
-        showreel_link.style.height = "405px";
-        showreel_link.style.scale = "75%";
-        showreel_link.className = "albumMouseOver";
+        showreel_link.className = "youtube ";
         showreel_div.appendChild(showreel_link);
         
         
