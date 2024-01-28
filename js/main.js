@@ -6,39 +6,39 @@ window.onload = function() {
         {
             architect: "SM Architecture",
             local: "Fernão Ferro - Portugal",
-            software: "3D Studio Max - Corona - Photshop",
-            images: ["../img/SM_FF/01_exterior.jpg", "../img/SM_FF/02_exterior.jpg"]
+            software: "3D Studio Max - Corona - Photoshop",
+            images: ["../img/SM_FF/01_exterior.jpg", "../img/SM_FF/02_exterior.jpg", "../img/SM_FF/03_exterior.jpg", "../img/SM_FF/04_exterior.jpg", "../img/SM_FF/05_exterior.jpg", "../img/SM_FF/06_exterior.jpg"]
            
         },
         {
             architect: "RA Architecture",
             local: "Azeitão - Portugal",
-            software: "3D Studio Max - Corona - Photshop",
-            images: ["../img/RA_Az/RA_Az_01.jpg", "../img/RA_Az/RA_Az_02.jpg", "../img/RA_Az/RA_Az_03.jpg"]
+            software: "3D Studio Max - Corona - Photoshop",
+            images: ["../img/RA_Az/RA_Az_01.jpg", "../img/RA_Az/RA_Az_02.jpg", "../img/RA_Az/RA_Az_03.jpg", "../img/RA_Az/RA_Az_04.jpg", "../img/RA_Az/RA_Az_05.jpg", "../img/RA_Az/RA_Az_06.jpg"]
         },
         {
             architect: "SM Architecture",
             local: "Cruz de Pau - Portugal",
-            software: "3D Studio Max - Vray - Photshop",
-            images: ["../img/SM_CruzPau/SM_CruzPau_01.jpg", "../img/SM_CruzPau/SM_CruzPau_02.jpg"]
+            software: "3D Studio Max - Vray - Photoshop",
+            images: ["../img/SM_CruzPau/SM_CruzPau_01.jpg", "../img/SM_CruzPau/SM_CruzPau_02.jpg", "../img/SM_CruzPau/SM_CruzPau_03.jpg", "../img/SM_CruzPau/SM_CruzPau_04.jpg", "../img/SM_CruzPau/SM_CruzPau_05.jpg", "../img/SM_CruzPau/SM_CruzPau_06.jpg"]
         },
         {
             architect: "RA Architecture",
             local: "Amadora - Portugal",
-            software: "3D Studio Max - Corona - Photshop",
-            images: ["../img/CrisAmadora/CrisAmad_01_Coz_01.jpg", "../img/CrisAmadora/CrisAmad_01_Coz_02.jpg"]
+            software: "3D Studio Max - Corona - Photoshop",
+            images: ["../img/CrisAmadora/CrisAmad_01_Coz_01.jpg", "../img/CrisAmadora/CrisAmad_01_Coz_02.jpg", "../img/CrisAmadora/CrisAmad_02_Quarto_01.jpg"]
         },
         {
             architect: "PA Architecture",
             local: "Charneca - Portugal",
-            software: "3D Studio Max - Vray - Photshop",
-            images: ["../img/PA_Mesquita/PA_Mesq_01.jpg", "../img/PA_Mesquita/PA_Mesq_02.jpg"]
+            software: "3D Studio Max - Vray - Photoshop",
+            images: ["../img/PA_Mesquita/PA_Mesq_01.jpg", "../img/PA_Mesquita/PA_Mesq_02.jpg", "../img/PA_Mesquita/PA_Mesq_03.jpg", "../img/PA_Mesquita/PA_Mesq_04.jpg", "../img/PA_Mesquita/PA_Mesq_05.jpg", "../img/PA_Mesquita/PA_Mesq_06.jpg", "../img/PA_Mesquita/PA_Mesq_07.jpg"]
         },
         {
             architect: "SM Architecture",
             local: "Aroeira - Portugal",
-            software: "3D Studio Max - Corona - Photshop",
-            images: ["../img/SM_Cantarelo/SM_Cant_01_Noite_01.jpg", "../img/SM_Cantarelo/SM_Cant_01_Noite_02.jpg"]
+            software: "3D Studio Max - Corona - Photoshop",
+            images: ["../img/SM_Cantarelo/SM_Cant_01_Noite_01.jpg", "../img/SM_Cantarelo/SM_Cant_01_Noite_02.jpg", "../img/SM_Cantarelo/SM_Cant_02_Dia_01.jpg", "../img/SM_Cantarelo/SM_Cant_02_Dia_02.jpg", "../img/SM_Cantarelo/SM_Cant_03_Sala_01.jpg", "../img/SM_Cantarelo/SM_Cant_03_Sala_02.jpg", "../img/SM_Cantarelo/SM_Cant_03_Sala_03.jpg", "../img/SM_Cantarelo/SM_Cant_03_Sala_04.jpg", "../img/SM_Cantarelo/SM_Cant_03_Sala_05.jpg"]
         }
     ];
 
@@ -56,65 +56,126 @@ window.onload = function() {
 
 
 
+
+
+
+
     //---------------------------------------------------//
     //-------------------- Slides -----------------------//
     //---------------------------------------------------//
 
-    let album_slider = 1;
-
-    let slider = document.getElementById("slider");
-    slider.className = "slider_container backGround-red";
-
-
-    // ----------------- Images -----------------------
-    let slider_Img = document.createElement("img");
-    slider_Img.src = portfolio[album_slider].images[1];
-    slider_Img.className = "slider_img";
-    //slider.appendChild(slider_Img);
-
-    // ------------------ Text -----------------------
-    let slider_Text = document.createElement("div");
-    slider_Text.className = "slider_text";
     
+    let album_slider_random_array = [];
+    let album_slider_image_random_array = [];
+
+
+            // --------- Selection albuns ---------------
+            for (i = 0; i < 3; i++) {
+    
+                const album_slider_random = Math.floor(Math.random() * portfolio.length);
+                
+                album_slider_random_array.push(album_slider_random);
+                
+                //console.log(portf_random_array.map((x) => x !== portfolio_random));
+    
+
+
+               
+               album_slider_image_random_array.push(Math.floor(Math.random() * portfolio[album_slider_random_array[i]].images.length))
+
+               console.log("album- " + album_slider_random_array);
+               console.log("imagem- " + album_slider_random_array);
+    
+            }
+
+
+    let slider_img_Select = Math.floor(Math.random() * album_slider_random_array.length);
+    
+    
+    
+    let Slider_input_Img = function() {
+
+        
+        // ----------------- Images -----------------------
+        let slider_Images = document.getElementById("slider_Images");
+        let slider_Img = document.createElement("img");
+        slider_Img.src = portfolio[album_slider_random_array[slider_img_Select]].images[album_slider_image_random_array[slider_img_Select]];
+        slider_Img.className = ("slider_img");
+        slider_Images.append(slider_Img);
+        
+        // ------------------ Text -----------------------
+        let slider_Text = document.getElementById("slider_text_ID");
+        
         let slider_Arch = document.createElement("h3");
-        slider_Arch.innerText = portfolio[album_slider].architect;
-        slider_Text.appendChild(slider_Arch);
+        slider_Arch.innerText = portfolio[album_slider_random_array[slider_img_Select]].architect;
+        slider_Text.append(slider_Arch);
         
         let slider_Local = document.createElement("h3");
-        slider_Local.innerText = portfolio[album_slider].local;
-        slider_Text.appendChild(slider_Local);
-    
-    
+        slider_Local.innerText = portfolio[album_slider_random_array[slider_img_Select]].local;
+        slider_Text.append(slider_Local);
+        
+        
+        console.log(portfolio[album_slider_random_array[slider_img_Select]].images[album_slider_image_random_array[slider_img_Select]]);
+        
+
         
         
         // -------------- Slider Indicator ---------------------
-    let get_slider_indicator = function(n) {
+    
         
         
         let slider_Indicator = document.getElementById("slider_indicator_ID");
         slider_Indicator.className = "slider_indicator";
         
-
-        for (i = 0; i < n; i++) {
+        
+        
+        for (i = 0; i < 3; i++) {
 
             let slider_Indicator_in = document.createElement("div");
             slider_Indicator_in.className = "slider_indicator_in";
-            slider_Indicator.appendChild(slider_Indicator_in);
+            slider_Indicator.append(slider_Indicator_in);
             
         }
     
+        
+        
+        
+        slider_Images.append(slider_Indicator, slider_Text);
+        
     }
 
 
-slider.append(slider_Img , slider_Text, get_slider_indicator(3));
+
+    function resolveAfter2Seconds() {
+        return new Promise((resolve) => {
+          setTimeout(() => {
+            let slider_clear = document.getElementsByTagName("slider_Images");
+            slider_clear.remo
+            
+            //slider_Indicator.removeChild(slider_Indicator_in);
+                Slider_input_Img();
+
+              resolve('resolved');
+          }, 2000);
+        });
+      }
+      
+      async function asyncCall() {
+        Slider_input_Img();
+
+        console.log('calling');
+        const result = await resolveAfter2Seconds();
+        console.log(result);
+        // Expected output: "resolved"
+    }
     
-    
-    
-    
-    
-    //---------------------------------------------------//
-    //-------------------- Slides -----------------------//
-    //---------------------------------------------------//
+      asyncCall();
+        
+        
+        
+        //---------------------------------------------------//
+        //-------------------- Slides -----------------------//
+        //---------------------------------------------------//
 
  /*   function randomSlides() {
 
@@ -238,9 +299,9 @@ slider.append(slider_Img , slider_Text, get_slider_indicator(3));
 
 
 
-    //------------------------------------------------------//
-    //-------------------- Portfolio -----------------------//
-    //------------------------------------------------------// 
+    //---------------------------------------------------------------//
+    //-------------------- Portfolio Function -----------------------//
+    //---------------------------------------------------------------// 
     // Create albuns
     function createAlbuns() {
 
@@ -312,6 +373,7 @@ slider.append(slider_Img , slider_Text, get_slider_indicator(3));
 
 
     let Showreel = document.getElementById("showreel");
+        showreel.className = "youtube";
 
     for (i = 0; i < showreel_list.length; i++) {
 
@@ -319,12 +381,12 @@ slider.append(slider_Img , slider_Text, get_slider_indicator(3));
         
         let showreel_tittle = document.createElement("p");
         showreel_tittle.innerText = showreel_list[i].tittle;
+        showreel_tittle.className = "text-center"
         showreel_div.appendChild(showreel_tittle);
         
         
         let showreel_link = document.createElement("iframe");
         showreel_link.src = showreel_list[i].link;
-        showreel_link.className = "youtube ";
         showreel_div.appendChild(showreel_link);
         
         
