@@ -42,10 +42,6 @@ window.onload = function() {
         }
     ];
 
-
-    
-
-
     
     //randomSlides();
         
@@ -53,9 +49,6 @@ window.onload = function() {
     for (i = 0; i < portfolio.length; i++) {
         createAlbuns();
     }
-
-
-
 
 
 
@@ -90,10 +83,6 @@ window.onload = function() {
             }
 
 
-    //let slider_img_Select = Math.floor(Math.random() * album_slider_random_array.length);
-    //console.log("array selected- " + slider_img_Select);
-    //console.log("album- " + album_slider_random_array[slider_img_Select]);
-    //console.log("image- " + album_slider_image_random_array[slider_img_Select]);
     
     let slider_img_Select = 0;
     
@@ -132,11 +121,11 @@ window.onload = function() {
         
         
         
+        // -------------- Slider Indicator ---------------------
         
         let slider_Indicator = document.getElementById("slider_indicator_ID");
         slider_Indicator.innerHTML = "";
         slider_Indicator.className = "slider_indicator";
-        
         
         
         for (i = 0; i < album_slider_random_array.length; i++) {
@@ -152,8 +141,7 @@ window.onload = function() {
             slider_Indicator.append(slider_Indicator_in);
             
         }
-        
-        
+             
         
         
         slider_Images.append(slider_Indicator);
@@ -164,128 +152,8 @@ window.onload = function() {
     }
     
     Slider_input_Img();
-    //window.onload(Slider_input_Img());
     
-    
-    // -------------- Slider Indicator ---------------------
-        
-        
-        
-    
-    
-
-
-        
-        
-        
-        //---------------------------------------------------//
-        //-------------------- Slides -----------------------//
-        //---------------------------------------------------//
-
- /*   function randomSlides() {
-
-        let portf_random_array = [];
-
-        createRandomSlides();
-
-        insertRandomSlides();
-        
-        console.log(portf_random_array);
-    
-        
-
-        function createRandomSlides () {
-
-            // --------- Selection albuns ---------------
-            for (i = 0; i < 3; i++) {
-    
-                const portfolio_random = Math.floor(Math.random() * portfolio.length);
-                
-                portf_random_array.push(portfolio_random);
-                
-                //console.log(portf_random_array.map((x) => x !== portfolio_random));
-    
-               
-                // ------------ Avoid repeat album ----------------                
-                if (portf_random_array[0] === portf_random_array[1]) {
-                    console.log(portf_random_array + " " + i);
-                    portf_random_array.pop();
-                    i--;
-                    console.log("iguais 0 e 1");
-                
-                } else if (portf_random_array[1] === portf_random_array[2] && portf_random_array[2] !== undefined || portf_random_array[0] === portf_random_array[2]) {
-                    console.log(portf_random_array + " " + i);
-                    portf_random_array.pop();
-                    i--;
-                    console.log("iguais 1 e 2, ou 0 e 2");
-                };
-    
-            }
-        }
-    
-        function insertRandomSlides() {
-
-                //------------ random slide01 ---------------
-            let imgSlide_01 = document.getElementById("imgSlide_01");
-
-            let imgSlide_import_01 = document.createElement("img");
-            imgSlide_import_01.src = portfolio[portf_random_array[0]].images[get_portf_img_random(0)];
-            imgSlide_01.append(imgSlide_import_01);
-            console.log(imgSlide_import_01.src);
-
-            let slideArch_01 = document.getElementById("slideArch_01");
-            slideArch_01.className = "slide-text"
-            slideArch_01.innerHTML = portfolio[portf_random_array[0]].architect;
-
-            let slideLocal_01 = document.getElementById("slideLocal_01");
-            slideLocal_01.className = "slide-text"
-            slideLocal_01.innerHTML = portfolio[portf_random_array[0]].local;
-
-
-                //------------ random slide02 ---------------
-            let imgSlide_02 = document.getElementById("imgSlide_02");
-
-            let imgSlide_import_02 = document.createElement("img");
-            imgSlide_import_02.src = portfolio[portf_random_array[1]].images[get_portf_img_random(1)];
-            imgSlide_02.append(imgSlide_import_02);
-            console.log(imgSlide_import_02.src);
-
-            let slideArch_02 = document.getElementById("slideArch_02");
-            slideArch_02.className = "slide-text"
-            slideArch_02.innerHTML = portfolio[portf_random_array[1]].architect;
-
-            let slideLocal_02 = document.getElementById("slideLocal_02");
-            slideLocal_02.className = "slide-text"
-            slideLocal_02.innerHTML = portfolio[portf_random_array[1]].local;
-
-        
-                //------------ random slide03 ---------------
-            let imgSlide_03 = document.getElementById("imgSlide_03");
-
-            let imgSlide_import_03 = document.createElement("img");
-            imgSlide_import_03.src = portfolio[portf_random_array[2]].images[get_portf_img_random(2)];
-            imgSlide_03.append(imgSlide_import_03);
-            console.log(imgSlide_import_03.src);
-
-            let slideArch_03 = document.getElementById("slideArch_03");
-            slideArch_03.className = "slide-text"
-            slideArch_03.innerHTML = portfolio[portf_random_array[2]].architect;
-
-            let slideLocal_03 = document.getElementById("slideLocal_03");
-            slideLocal_03.className = "slide-text"
-            slideLocal_03.innerHTML = portfolio[portf_random_array[2]].local;
-
-        }
-        
-        
-        function get_portf_img_random(album) {
-    
-            return Math.floor(Math.random() * portfolio[portf_random_array[album]].images.length)
-            //console.log(portfolio_image_random + " " + portfolio[portfolio_random].images[portfolio_image_random]);
-        }
-   
-    }
-*/
+  
 
 
     //----------------------------------------------------------//
