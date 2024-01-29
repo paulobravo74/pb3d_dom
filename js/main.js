@@ -87,6 +87,8 @@ window.onload = function() {
     let slider_img_Select = 0;
     
     let Slider_input_Img = function() {
+
+        // ----------------- Foto perfil ------------------
         
         
         // ----------------- Images -----------------------
@@ -156,19 +158,6 @@ window.onload = function() {
   
 
 
-    //----------------------------------------------------------//
-    //-------------------- Apresentation -----------------------//
-    //----------------------------------------------------------//
-    let apresentation = document.getElementById("apresentation_ID");
-        apresentation.className = "apresentation";
-
-    let apresentation_image = document.createElement("img");
-    apresentation_image.src = portfolio[1].images[2];
-    apresentation_image.className = "apresent_Image"
-    apresentation.append(apresentation_image);
-
-
-
 
 
 
@@ -235,18 +224,22 @@ window.onload = function() {
 
     let showreel_list = [
         {
-            tittle: "Showreel 2007",
+            tittle: "Showreel 2008",
             link: "http://www.youtube.com/embed/mXvZ_6Mg3wk"
         },
         {
-            tittle: "Showreel 2022",
+            tittle: "Showreel 2020",
             link: "http://www.youtube.com/embed/of0XUB_xKwQ"
+        },
+        {
+            tittle: "Showreel 2021",
+            link: "http://www.youtube.com/embed/SyrTpqoReJQ"
         }
     ]
 
 
     let Showreel = document.getElementById("showreel");
-        showreel.className = "youtube";
+        //Showreel.className = "youtube";
 
     for (i = 0; i < showreel_list.length; i++) {
 
@@ -259,6 +252,7 @@ window.onload = function() {
         
         
         let showreel_link = document.createElement("iframe");
+        showreel_link.className = "youtube";
         showreel_link.src = showreel_list[i].link;
         showreel_div.appendChild(showreel_link);
         
