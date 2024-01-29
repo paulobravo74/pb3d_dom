@@ -54,8 +54,10 @@
 }
 
 .slider_text {
-    background-color: green;
-    width: 100%;
+    padding-left: 5%;
+    padding-right: 5%;
+    background-color: rgb(218, 218, 218, 0.5);
+    width: max-content;
     position: absolute;
     margin-left: auto;
     margin-right: auto;
@@ -66,9 +68,9 @@
 }
 
 .slider_indicator{
-    background-color: aqua;
+    background-color: rgb(254, 254, 18254, 0.5);
     position: absolute;
-    width: 100%;
+    width:max-content;
     height: 25px;
     margin-left: auto;
     margin-right: auto;
@@ -88,6 +90,13 @@
     width: 40px;
     height: 4px;
     
+}
+
+.slider_indicator_in_active{
+    margin: 5px;
+    background-color: grey;
+    width: 40px;
+    height: 4px;
 }
 
 

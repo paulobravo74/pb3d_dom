@@ -67,10 +67,11 @@ window.onload = function() {
     
     let album_slider_random_array = [];
     let album_slider_image_random_array = [];
+    let number_Of_Slides = 5;
 
 
             // --------- Selection albuns ---------------
-            for (i = 0; i < 3; i++) {
+            for (i = 0; i < number_Of_Slides; i++) {
     
                 const album_slider_random = Math.floor(Math.random() * portfolio.length);
                 
@@ -84,17 +85,20 @@ window.onload = function() {
                album_slider_image_random_array.push(Math.floor(Math.random() * portfolio[album_slider_random_array[i]].images.length))
 
                console.log("album- " + album_slider_random_array);
-               console.log("imagem- " + album_slider_random_array);
+               console.log("imagem- " + album_slider_image_random_array);
     
             }
 
 
-    let slider_img_Select = Math.floor(Math.random() * album_slider_random_array.length);
+    //let slider_img_Select = Math.floor(Math.random() * album_slider_random_array.length);
+    //console.log("array selected- " + slider_img_Select);
+    //console.log("album- " + album_slider_random_array[slider_img_Select]);
+    //console.log("image- " + album_slider_image_random_array[slider_img_Select]);
     
-    
+    let slider_img_Select = 0;
     
     let Slider_input_Img = function() {
-
+        
         
         // ----------------- Images -----------------------
         let slider_Images = document.getElementById("slider_Images");
@@ -105,6 +109,7 @@ window.onload = function() {
         
         // ------------------ Text -----------------------
         let slider_Text = document.getElementById("slider_text_ID");
+        slider_Text.innerHTML = "";
         
         let slider_Arch = document.createElement("h3");
         slider_Arch.innerText = portfolio[album_slider_random_array[slider_img_Select]].architect;
@@ -117,59 +122,59 @@ window.onload = function() {
         
         console.log(portfolio[album_slider_random_array[slider_img_Select]].images[album_slider_image_random_array[slider_img_Select]]);
         
+        if (slider_img_Select < album_slider_random_array.length - 1) {
+            slider_img_Select++
+        } else {
+            slider_img_Select = 0
+        }
 
+        console.log(slider_img_Select);
         
         
-        // -------------- Slider Indicator ---------------------
-    
         
         
         let slider_Indicator = document.getElementById("slider_indicator_ID");
+        slider_Indicator.innerHTML = "";
         slider_Indicator.className = "slider_indicator";
         
         
         
-        for (i = 0; i < 3; i++) {
-
+        for (i = 0; i < album_slider_random_array.length; i++) {
+            
             let slider_Indicator_in = document.createElement("div");
-            slider_Indicator_in.className = "slider_indicator_in";
+
+            if (slider_img_Select === i) {
+                slider_Indicator_in.className = "slider_indicator_in_active";    
+            } else {
+                slider_Indicator_in.className = "slider_indicator_in";
+            }
+            
             slider_Indicator.append(slider_Indicator_in);
             
         }
-    
         
         
         
-        slider_Images.append(slider_Indicator, slider_Text);
         
-    }
-
-
-
-    function resolveAfter2Seconds() {
-        return new Promise((resolve) => {
-          setTimeout(() => {
-            let slider_clear = document.getElementsByTagName("slider_Images");
-            slider_clear.remo
-            
-            //slider_Indicator.removeChild(slider_Indicator_in);
-                Slider_input_Img();
-
-              resolve('resolved');
-          }, 2000);
-        });
-      }
-      
-      async function asyncCall() {
-        Slider_input_Img();
-
-        console.log('calling');
-        const result = await resolveAfter2Seconds();
-        console.log(result);
-        // Expected output: "resolved"
+        slider_Images.append(slider_Indicator);
+        
+        
+        setTimeout(Slider_input_Img, 3000);
+   
     }
     
-      asyncCall();
+    Slider_input_Img();
+    //window.onload(Slider_input_Img());
+    
+    
+    // -------------- Slider Indicator ---------------------
+        
+        
+        
+    
+    
+
+
         
         
         
