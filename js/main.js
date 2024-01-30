@@ -26,7 +26,7 @@ window.onload = function() {
             architect: "RA Architecture",
             local: "Amadora - Portugal",
             software: "3D Studio Max - Corona - Photoshop",
-            images: ["../img/CrisAmadora/CrisAmad_01_Coz_01.jpg", "../img/CrisAmadora/CrisAmad_01_Coz_02.jpg", "../img/CrisAmadora/CrisAmad_02_Quarto_01.jpg"]
+            images: ["../img/CrisAmadora/CrisAmad_01_Coz_01.jpg", "../img/CrisAmadora/CrisAmad_01_Coz_02.jpg", "../img/CrisAmadora/CrisAmad_02_Quarto_01.jpg", "../img/CrisAmadora/CrisAmad_02_Quarto_02.jpg", "../img/CrisAmadora/CrisAmad_02_Quarto_03.jpg", "../img/CrisAmadora/CrisAmad_03_Sala_01.jpg", "../img/CrisAmadora/CrisAmad_03_Sala_02.jpg", "../img/CrisAmadora/CrisAmad_03_Sala_03.jpg", "../img/CrisAmadora/CrisAmad_04_WC_01.jpg", "../img/CrisAmadora/CrisAmad_04_WC_02.jpg"]
         },
         {
             architect: "PA Architecture",
@@ -69,16 +69,11 @@ window.onload = function() {
                 const album_slider_random = Math.floor(Math.random() * portfolio.length);
                 
                 album_slider_random_array.push(album_slider_random);
-                
-                //console.log(portf_random_array.map((x) => x !== portfolio_random));
-    
-
-
                
-               album_slider_image_random_array.push(Math.floor(Math.random() * portfolio[album_slider_random_array[i]].images.length))
+                album_slider_image_random_array.push(Math.floor(Math.random() * portfolio[album_slider_random_array[i]].images.length))
 
-               console.log("album- " + album_slider_random_array);
-               console.log("imagem- " + album_slider_image_random_array);
+                console.log("album- " + album_slider_random_array);
+                console.log("imagem- " + album_slider_image_random_array);
     
             }
 
@@ -111,7 +106,7 @@ window.onload = function() {
         slider_Text.append(slider_Local);
         
         
-        console.log(portfolio[album_slider_random_array[slider_img_Select]].images[album_slider_image_random_array[slider_img_Select]]);
+                console.log(portfolio[album_slider_random_array[slider_img_Select]].images[album_slider_image_random_array[slider_img_Select]]);
         
         if (slider_img_Select < album_slider_random_array.length - 1) {
             slider_img_Select++
@@ -209,12 +204,81 @@ window.onload = function() {
 
         }
 
-        album.addEventListener("onclick", func02, false);
-        function func02() {
-            album.setAttribute("class", "albumMouseOnClick");
+       
+        
+        function showImages() {
+            
+            // Cria um elemento modal
+            let modal = document.createElement("div");
+            modal.className = "modal";
+          
+            // Percorre as fotos do álbum e cria elementos de imagem para cada uma
+            for (let j = 0; j < portfolio[1].images.length; j++) {
+              let img = document.createElement("img");
+              img.src = portfolio[0].images[j];
+              modal.append(img);
+            }
+          
+            // Adiciona o elemento modal ao corpo do documento
+            document.body.append(modal);
 
+            console.log("testando");
+            console.log(portfolio[3].images.length);
         }
+        
+        
+        album.addEventListener("click", showImages, false);
+
     } 
+
+    // Obter referências aos elementos do DOM
+    var modal = document.getElementById("myModal");
+    var btnOpenModal = document.getElementById("openModal");
+    var spanCloseModal = document.getElementsByClassName("close")[0];
+    let modal_content = document.getElementById("modal_content_ID");
+
+    // Adicionar eventos aos elementos
+    btnOpenModal.onclick = function() {
+        modal.style.display = "flex";
+
+        let modal_album = 4;
+
+        let modal_arch = document.createElement("h1");
+        modal_arch.innerHTML = portfolio[modal_album].architect;
+        modal_arch.className = "text-center";
+        modal_content.append(modal_arch);
+
+        let modal_local = document.createElement("p");
+        modal_local.innerHTML = portfolio[modal_album].local;
+        modal_local.className = "text-center";
+        modal_content.append(modal_local);
+        
+        for (i = 0; i < portfolio[modal_album].images.length; i++) {
+            
+            let modal_Images = document.createElement("img"); 
+            modal_Images.src = portfolio[modal_album].images[i];
+            modal_Images.className = "modal_images";
+            modal_content.append(modal_Images);
+        }
+
+        let modal_close = document.createElement("span");
+        modal_close.className = "close";
+        modal_close.innerHTML = "&times;";
+        modal_content.append(modal_close);
+    
+    }
+
+    spanCloseModal.onclick = function() {
+    modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+
+
+}
 
    
 
