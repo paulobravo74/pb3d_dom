@@ -4,6 +4,7 @@ window.onload = function() {
 
     let portfolio = [
         {
+            id: 0,
             architect: "SM Architecture",
             local: "Fernão Ferro - Portugal",
             software: "3D Studio Max - Corona - Photoshop",
@@ -11,30 +12,35 @@ window.onload = function() {
            
         },
         {
+            id: 1,
             architect: "RA Architecture",
             local: "Azeitão - Portugal",
             software: "3D Studio Max - Corona - Photoshop",
             images: ["../img/RA_Az/RA_Az_01.jpg", "../img/RA_Az/RA_Az_02.jpg", "../img/RA_Az/RA_Az_03.jpg", "../img/RA_Az/RA_Az_04.jpg", "../img/RA_Az/RA_Az_05.jpg", "../img/RA_Az/RA_Az_06.jpg"]
         },
         {
+            id: 2,
             architect: "SM Architecture",
             local: "Cruz de Pau - Portugal",
             software: "3D Studio Max - Vray - Photoshop",
             images: ["../img/SM_CruzPau/SM_CruzPau_01.jpg", "../img/SM_CruzPau/SM_CruzPau_02.jpg", "../img/SM_CruzPau/SM_CruzPau_03.jpg", "../img/SM_CruzPau/SM_CruzPau_04.jpg", "../img/SM_CruzPau/SM_CruzPau_05.jpg", "../img/SM_CruzPau/SM_CruzPau_06.jpg"]
         },
         {
+            id: 3,
             architect: "RA Architecture",
             local: "Amadora - Portugal",
             software: "3D Studio Max - Corona - Photoshop",
             images: ["../img/CrisAmadora/CrisAmad_01_Coz_01.jpg", "../img/CrisAmadora/CrisAmad_01_Coz_02.jpg", "../img/CrisAmadora/CrisAmad_02_Quarto_01.jpg", "../img/CrisAmadora/CrisAmad_02_Quarto_02.jpg", "../img/CrisAmadora/CrisAmad_02_Quarto_03.jpg", "../img/CrisAmadora/CrisAmad_03_Sala_01.jpg", "../img/CrisAmadora/CrisAmad_03_Sala_02.jpg", "../img/CrisAmadora/CrisAmad_03_Sala_03.jpg", "../img/CrisAmadora/CrisAmad_04_WC_01.jpg", "../img/CrisAmadora/CrisAmad_04_WC_02.jpg"]
         },
         {
+            id: 4,
             architect: "PA Architecture",
             local: "Charneca - Portugal",
             software: "3D Studio Max - Vray - Photoshop",
             images: ["../img/PA_Mesquita/PA_Mesq_01.jpg", "../img/PA_Mesquita/PA_Mesq_02.jpg", "../img/PA_Mesquita/PA_Mesq_03.jpg", "../img/PA_Mesquita/PA_Mesq_04.jpg", "../img/PA_Mesquita/PA_Mesq_05.jpg", "../img/PA_Mesquita/PA_Mesq_06.jpg", "../img/PA_Mesquita/PA_Mesq_07.jpg"]
         },
         {
+            id: 5,
             architect: "SM Architecture",
             local: "Aroeira - Portugal",
             software: "3D Studio Max - Corona - Photoshop",
@@ -43,7 +49,6 @@ window.onload = function() {
     ];
 
     
-    //randomSlides();
         
     
     for (i = 0; i < portfolio.length; i++) {
@@ -78,12 +83,40 @@ window.onload = function() {
             }
 
 
+    let album_repeat = album_slider_random_array;
+    let repeat = false
+
+    for (i = 0; i < album_repeat.length; i++) {
+
+        let count_repeat = 0;
+
+        console.log(album_repeat[i]);
+
+
+        for (j = 0; j < album_slider_random_array.length; j++) {
+            
+            console.log(album_slider_random_array[j]);
+            
+            if (album_repeat[i] === album_slider_random_array[j]) {
+                count_repeat++;
+                console.log("Repetition - " + count_repeat);
+            }
+            
+        }
+        
+        
+        count_repeat > 1 ? repeat=true : repeat=false;
+        console.log(repeat); 
+            
+    }
+
+
+
     
     let slider_img_Select = 0;
     
     let Slider_input_Img = function() {
 
-        // ----------------- Foto perfil ------------------
         
         
         // ----------------- Images -----------------------
@@ -105,8 +138,7 @@ window.onload = function() {
         slider_Local.innerText = portfolio[album_slider_random_array[slider_img_Select]].local;
         slider_Text.append(slider_Local);
         
-        
-                console.log(portfolio[album_slider_random_array[slider_img_Select]].images[album_slider_image_random_array[slider_img_Select]]);
+            console.log(portfolio[album_slider_random_array[slider_img_Select]].images[album_slider_image_random_array[slider_img_Select]]);
         
         if (slider_img_Select < album_slider_random_array.length - 1) {
             slider_img_Select++
@@ -156,20 +188,25 @@ window.onload = function() {
 
 
 
-    //---------------------------------------------------------------//
-    //-------------------- Portfolio Function -----------------------//
-    //---------------------------------------------------------------// 
+    //--------------------------------------------------------------------------//
+    //--------------------------- Portfolio Function ---------------------------//
+    //--------------------------------------------------------------------------// 
+    
+    
     // Create albuns
     function createAlbuns() {
 
         let albunsID = document.getElementById("albunsID");
         albunsID.className = "albuns";
 
+
+
         let album = document.createElement("div");
-        let albumID = i + 1;
-        album.id = "albumID_0" + albumID;
+        let albumID = i;
+        album.id = "albumID_" + albumID;
         album.className = "album";
         albunsID.append(album);
+        console.log(album.id);
         
         let album_image = document.createElement("img");
         album_image.className = "imgAlbum";
@@ -206,85 +243,77 @@ window.onload = function() {
 
        
         
-        function showImages() {
-            
-            // Cria um elemento modal
-            let modal = document.createElement("div");
-            modal.className = "modal";
-          
-            // Percorre as fotos do álbum e cria elementos de imagem para cada uma
-            for (let j = 0; j < portfolio[1].images.length; j++) {
-              let img = document.createElement("img");
-              img.src = portfolio[0].images[j];
-              modal.append(img);
-            }
-          
-            // Adiciona o elemento modal ao corpo do documento
-            document.body.append(modal);
+        
+        function showImages(albumID) {
 
+            // Obter referências aos elementos do DOM
+            var modal = document.getElementById("myModal");
+            var btnOpenModal = document.getElementById("openModal");
+            var spanCloseModal = document.getElementsByClassName("close")[0];
+            let modal_content = document.getElementById("modal_content_ID");
+
+            
+            modal_content.innerHTML = "";
+            
+            // Adicionar eventos aos elementos
+                modal.style.display = "flex";
+                
+
+                let modal_arch = document.createElement("h1");
+                modal_arch.innerHTML = portfolio[albumID].architect;
+                modal_arch.className = "text-center";
+                modal_content.append(modal_arch);
+
+                let modal_local = document.createElement("p");
+                modal_local.innerHTML = portfolio[albumID].local;
+                modal_local.className = "text-center";
+                modal_content.append(modal_local);
+                
+                for (i = 0; i < portfolio[albumID].images.length; i++) {
+                    
+                    let modal_Images = document.createElement("img"); 
+                    modal_Images.src = portfolio[albumID].images[i];
+                    modal_Images.className = "modal_images";
+                    modal_content.append(modal_Images);
+                }
+
+                let modal_close = document.createElement("span");
+                modal_close.id = "modal_close_ID"
+                modal_close.className = "close";
+                modal_close.innerHTML = "Close Window";
+                modal_content.append(modal_close);
+            
+                
+                
+                let spanCloseModal_ID = document.getElementById("modal_close_ID");
+
+                spanCloseModal_ID.onclick = function() {
+                    modal.style.display = "none";
+                    }
+        
+                window.onclick = function(event) {
+                    if (event.target == modal) {
+                        modal.style.display = "none";
+                    }
+                }
+            
+            
             console.log("testando");
-            console.log(portfolio[3].images.length);
+            
+            console.log("album-" + albumID);
         }
         
         
-        album.addEventListener("click", showImages, false);
+        album.addEventListener("click", showImages.bind(null, albumID), false);
 
     } 
 
-    // Obter referências aos elementos do DOM
-    var modal = document.getElementById("myModal");
-    var btnOpenModal = document.getElementById("openModal");
-    var spanCloseModal = document.getElementsByClassName("close")[0];
-    let modal_content = document.getElementById("modal_content_ID");
-
-    // Adicionar eventos aos elementos
-    btnOpenModal.onclick = function() {
-        modal.style.display = "flex";
-
-        let modal_album = 4;
-
-        let modal_arch = document.createElement("h1");
-        modal_arch.innerHTML = portfolio[modal_album].architect;
-        modal_arch.className = "text-center";
-        modal_content.append(modal_arch);
-
-        let modal_local = document.createElement("p");
-        modal_local.innerHTML = portfolio[modal_album].local;
-        modal_local.className = "text-center";
-        modal_content.append(modal_local);
-        
-        for (i = 0; i < portfolio[modal_album].images.length; i++) {
-            
-            let modal_Images = document.createElement("img"); 
-            modal_Images.src = portfolio[modal_album].images[i];
-            modal_Images.className = "modal_images";
-            modal_content.append(modal_Images);
-        }
-
-        let modal_close = document.createElement("span");
-        modal_close.className = "close";
-        modal_close.innerHTML = "&times;";
-        modal_content.append(modal_close);
-    
-    }
-
-    spanCloseModal.onclick = function() {
-    modal.style.display = "none";
-    }
-
-    window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-
-
-}
-
    
+  
 
-    //-----------------------------------------------------//
-    //-------------------- Showreel -----------------------//
-    //-----------------------------------------------------//
+    //--------------------------------------------------------------------------//
+    //-------------------------------- Showreel --------------------------------//
+    //--------------------------------------------------------------------------//
 
     let showreel_list = [
         {

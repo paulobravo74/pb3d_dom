@@ -233,6 +233,10 @@
     text-align: center;
 }
 
+.text-right {
+    text-align: right;
+}
+
 
 .test {
     display: flex;
