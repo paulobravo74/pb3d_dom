@@ -46,7 +46,7 @@
 
 .slider {
     background-color: red;
-    
+    width: 100%;
     height: 100vh;
 }
 
@@ -91,7 +91,7 @@
 .slider_text {
     padding-left: 5%;
     padding-right: 5%;
-    background-color: rgb(218, 218, 218, 0.5);
+    background-color: rgb(218, 218, 218, 0.25);
     width: max-content;
     position: absolute;
     margin-left: auto;
@@ -103,7 +103,7 @@
 }
 
 .slider_indicator{
-    background-color: rgb(254, 254, 18254, 0.5);
+    background-color: rgb(254, 254, 18254, 0.25);
     position: absolute;
     width:max-content;
     height: 25px;
@@ -375,3 +375,5 @@ margin-bottom: 3rem !important;
 .mb-4 {
 margin-bottom: 1.5rem !important;
 }
+
+
